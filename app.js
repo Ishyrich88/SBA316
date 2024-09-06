@@ -51,3 +51,29 @@ function addTask(e) {
 }
 
 taskForm.addEventListener('submit', addTask);
+
+// Function to remove a task
+function removeTask(e) {
+    e.target.remove();
+}
+
+// Modify the addTask function to add event listener for task removal
+function addTask(e) {
+    e.preventDefault();
+
+    if (taskInput.value.trim() === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    const li = document.createElement('li');
+    li.textContent = taskInput.value;
+
+    li.addEventListener('click', toggleComplete);
+    li.addEventListener('dblclick', removeTask); // Double-click to remove task
+
+    taskList.appendChild(li);
+    taskInput.value = '';
+}
+
+taskForm.addEventListener('submit', addTask);
