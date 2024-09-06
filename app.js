@@ -26,4 +26,28 @@ function addTask(e) {
 // Event listener for adding tasks
 taskForm.addEventListener('submit', addTask);
 
+// Function to toggle task completion
+function toggleComplete(e) {
+    e.target.classList.toggle('completed');
+}
 
+// Modify the addTask function to add event listener for task completion
+function addTask(e) {
+    e.preventDefault();
+
+    if (taskInput.value.trim() === "") {
+        alert("Please enter a task!");
+        return;
+    }
+
+    const li = document.createElement('li');
+    li.textContent = taskInput.value;
+
+    // Add event listener to toggle task completion
+    li.addEventListener('click', toggleComplete);
+
+    taskList.appendChild(li);
+    taskInput.value = '';
+}
+
+taskForm.addEventListener('submit', addTask);
