@@ -61,3 +61,21 @@ button:hover {
     text-decoration: line-through;
     color: grey;
 }
+
+#tasks li {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+#tasks li:hover {
+    background-color: #f4f4f4;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
