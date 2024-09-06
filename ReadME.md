@@ -1,0 +1,1 @@
+My Dom manipulation idea is a to do list application to help me curve my procastination habit ;). Ish
