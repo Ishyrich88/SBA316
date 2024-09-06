@@ -77,3 +77,22 @@ function addTask(e) {
 }
 
 taskForm.addEventListener('submit', addTask);
+
+function addTask(e) {
+    e.preventDefault();
+
+    if (taskInput.value.trim() === "") {
+        alert("Please enter a task!"); // Simple validation
+        return;
+    }
+
+    const li = document.createElement('li');
+    li.textContent = taskInput.value;
+
+    li.addEventListener('click', toggleComplete);
+    li.addEventListener('dblclick', removeTask);
+
+    taskList.appendChild(li);
+    taskInput.value = '';
+}
+
