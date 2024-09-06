@@ -7,14 +7,21 @@ const taskList = document.querySelector('#tasks');
 function addTask(e) {
     e.preventDefault(); // Prevent form submission
 
+    // Input validation
     if (taskInput.value.trim() === "") {
         alert("Please enter a task!");
         return;
     }
 
-    // Create a new task item using createElement
+    // Create a new task item
     const li = document.createElement('li');
     li.textContent = taskInput.value;
+
+    // Add event listener to toggle task completion
+    li.addEventListener('click', toggleComplete);
+
+    // Add event listener to remove task on double-click
+    li.addEventListener('dblclick', removeTask);
 
     // Append the new task to the task list
     taskList.appendChild(li);
@@ -23,76 +30,17 @@ function addTask(e) {
     taskInput.value = '';
 }
 
-// Event listener for adding tasks
-taskForm.addEventListener('submit', addTask);
-
 // Function to toggle task completion
 function toggleComplete(e) {
     e.target.classList.toggle('completed');
 }
-
-// Modify the addTask function to add event listener for task completion
-function addTask(e) {
-    e.preventDefault();
-
-    if (taskInput.value.trim() === "") {
-        alert("Please enter a task!");
-        return;
-    }
-
-    const li = document.createElement('li');
-    li.textContent = taskInput.value;
-
-    // Add event listener to toggle task completion
-    li.addEventListener('click', toggleComplete);
-
-    taskList.appendChild(li);
-    taskInput.value = '';
-}
-
-taskForm.addEventListener('submit', addTask);
 
 // Function to remove a task
 function removeTask(e) {
     e.target.remove();
 }
 
-// Modify the addTask function to add event listener for task removal
-function addTask(e) {
-    e.preventDefault();
-
-    if (taskInput.value.trim() === "") {
-        alert("Please enter a task!");
-        return;
-    }
-
-    const li = document.createElement('li');
-    li.textContent = taskInput.value;
-
-    li.addEventListener('click', toggleComplete);
-    li.addEventListener('dblclick', removeTask); // Double-click to remove task
-
-    taskList.appendChild(li);
-    taskInput.value = '';
-}
-
+// Event listener for adding tasks
 taskForm.addEventListener('submit', addTask);
 
-function addTask(e) {
-    e.preventDefault();
-
-    if (taskInput.value.trim() === "") {
-        alert("Please enter a task!"); // Simple validation
-        return;
-    }
-
-    const li = document.createElement('li');
-    li.textContent = taskInput.value;
-
-    li.addEventListener('click', toggleComplete);
-    li.addEventListener('dblclick', removeTask);
-
-    taskList.appendChild(li);
-    taskInput.value = '';
-}
 
